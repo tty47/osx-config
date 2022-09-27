@@ -1,0 +1,8 @@
+#!/bin/bash
+PIK_FOLDER="/System/Volumes/Data/Volumes/Data/workspace/"
+WS_FOLDER="/Users/$USER/workspace/"
+
+SELECTED=$(find ${PIK_FOLDER} ${WS_FOLDER} -mindepth 1 -maxdepth 1 -type d | fzf)
+WINDOW_NAME=$(basename ${SELECTED})
+
+tmux new-window -n "${WINDOW_NAME}" -c "${SELECTED}"

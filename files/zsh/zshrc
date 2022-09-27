@@ -1,0 +1,213 @@
+# =============================================================================
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# =============================================================================
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/$USER/.oh-my-zsh"
+export TERM="xterm-256color"
+
+#export SHELL="/opt/homebrew/bin/bash"
+#export BASH_VERSION="5.1.16(1)-release"
+#export BASH_VERSINFO="5.1.16(1)-release"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+# =============================================================================
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+# =============================================================================
+plugins=(
+ git
+ docker
+ zsh-syntax-highlighting
+ zsh-autosuggestions
+)
+
+# =============================================================================
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#export GOVERSION=1.17.5
+#export GOROOT=/usr/local/go
+#export GOPATH=~/go
+#export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+# =============================================================================
+# Export utils
+# The following line allows you to pull images for amd64 arch
+export DOCKER_DEFAULT_PLATFORM=linux/amd64  
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+# =============================================================================
+alias profile="vim ~/.zshrc && source ~/.zshrc"
+alias rprofile="source ~/.zshrc"
+
+#alias o="nautilus . &"s
+#alias open="nautilus . &"
+alias m="make"
+alias t="tmux"
+alias vim="nvim"
+alias copy='xclip -sel clip'
+alias c='xclip -sel clip'
+alias pwdc='pwd | xclip -sel clip'
+alias copy='pbcopy'
+alias c='pbcopy'
+alias pwdc='pwd | pbcopy'
+alias ls='lsd'
+alias cat='bat'
+alias envsub='envsubst'
+alias bash='/opt/homebrew/bin/bash'
+alias capi='clusterapi'
+
+# Git
+alias g="git"
+alias gs="git status"
+alias gc="git clone"
+alias gfp="git fetch && git pull"
+alias gch='git checkout'
+alias gcd='git checkout dev && gfp'
+#alias gurl='git config --get remote.origin.url'
+#alias gourl='URL=`git config --get remote.origin.url` && google-chrome $URL'
+alias gourl='open $(git ls-remote --get-url)'
+
+# Kubernetes
+alias k='kubectl'
+alias kd='kubectl describe'
+alias kdp='kubectl describe pod'
+alias kg='kubectl get'
+alias kgno='kubectl get no'
+alias kgn='kubectl get ns'
+alias kdelp='kubectl delete pod'
+alias kga='kubectl get all'
+alias kl='kubectl logs -f'
+alias kgall='k get deploy,sts,job,ds,rs,po,pvc,rc,svc,cm,secrets'
+alias kgqns='for i in $(kubectl get ns | cut -d" " -f1 | tail +2 );do echo -e "\e[94mNS:\e[24m \e[32m$i\e[39m" && k describe quota -n $i; done'
+alias kgpw='kubectl get pods --all-namespaces -w'
+alias wkgno='watch kubectl get no -o wide'
+alias kpns='kubectl get pods -A --no-headers -o=custom-columns=NAME:.metadata.name,NAMESPACE:.metadata.namespace,STATUS:.status.phase'
+
+# Docker
+alias dkall='docker rm $(docker ps -a -q); docker rmi $(docker images -a -q) --force; docker rmi $(docker image ls) && docker rm $(docker ps -a -f status=exited -q); docker system prune -a -f'
+alias d="docker"
+alias dps="docker ps"
+alias wdps="watch docker ps"
+alias drm="docker stop $(docker ps -qa --no-trunc --filter "status=exited")"
+
+# =============================================================================
+# Stops and delete first container detect
+function rmdo(){
+	IDC=$(docker ps| tail -n +2 | cut -d' ' -f1) ;d stop $IDC ; d rm $IDC 
+}
+# Setup needed files for Terraform
+function setup_tf(){
+	touch main.tf variables.tf output.tf README.md
+}
+# Get pods in nodes
+function pono(){
+	 for i in $(kubectl get no --no-headers -o=custom-columns=NAME:.metadata.name); do 
+		 echo -e "\e[0;37m\033[1m ---------- Node: \e[0;33m\033[1m $i  \e[0;37m\033[1m ----------\033[0m\e[0m \n"
+		 kubectl describe no $i |grep Non -A 35 |grep -B 30 -m 1 "Allocated"|grep -v "Allocated"
+		 echo "\n"
+	done
+}
+# Shows the allocated resources in the nodes
+function kallocated(){
+for node in $(kubectl  get no --no-headers -o=custom-columns=NAME:.metadata.name); do 
+	echo "------ NODE $node ----- \n"
+	kubectl describe no $node |grep "Allocated" -A 9
+done
+}
+# Shows the allocated resources in the nodes
+function wkallocated(){
+	while true; do 
+		for node in $(kubectl  get no --no-headers -o=custom-columns=NAME:.metadata.name); do 
+			echo "------ NODE $node ----- \n"
+			kubectl describe no $node |grep "Allocated" -A 9
+		done
+	done
+}
+# Stop and delete container
+function dsr(){
+	docker stop $1
+	docker rm $1
+}
+# Return the redis password decripted
+function dexn(){
+    for i in $(docker ps --filter "status=exited" --format '{{.Names}}'); do echo $i; done
+}
+# Filter ports from nmap scan
+function extractPorts() {
+    ports="$(cat $1 |grep -o '\d{1,5}/open'|awk '{print $1}' FS='/' |xargs |tr ' ' ',')"
+    ip_address="$(cat $1|grep -o '^Host: .* \(\)'|head -n 1|awk '{print $2}')"
+    echo -e "\n[*] Extracting information ports... \n" > extractPorts.tmp
+    echo -e "\n[*] IP Address: $ip_address" >> extractPorts.tmp
+    echo -e "\n[*] Open Ports: $ports\n" >> extractPorts.tmp
+    echo -$ports |tr -d '\n'|c
+    echo -e "[*] Ports copied to clipboard\n" >> extractPorts.tmp
+    cat extractPorts.tmp
+}
+# Show open ports
+function nmapOpenPorts(){
+    sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn $1
+}
+
+# =============================================================================
+# Paths
+export PATH=/usr/local/bin:/Users/$USER/go/bin:/Users/$USER/.local:/Users/$USER/.local/bin:/usr/local/go/go1.17/go/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=:/opt/homebrew/opt/mysql-client/bin/:$PATH
+export PATH=$PATH:/usr/local/go/bin
+# =============================================================================
+PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
+# =============================================================================
+
+# Kubernetes contrib -> https://github.com/kubernetes/community/blob/master/contributors/devel/development.md
+# This ensures that the GNU tools are found first in your path. 
+GNUBINS="$(find `brew --prefix`/opt -type d -follow -name gnubin -print)"
+for bindir in ${GNUBINS[@]}
+do
+  export PATH=$bindir:$PATH
+done
+
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
+PATH="/usr/local/bin/bash:${PATH}"
+export PATH
+
+# Load fzf config
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.extra_alias ] && source ~/.extra_alias

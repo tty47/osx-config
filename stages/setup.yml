@@ -1,0 +1,96 @@
+---
+- name: Import vars file
+  include_vars: "../vars/main.yml"
+  tags:
+    - nvim
+    - tunning
+    - development
+    - setup 
+
+- name: Check if Homebrew is already installed
+  stat:
+    path: "{{ homebrew_brew_bin_path }}"
+  register: brew
+
+- name: Install Homebrew
+  script: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  when: not brew.stat.exists
+
+- name: Install System Applications
+  become: false
+  homebrew:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: yes
+  with_items:
+    - ansible
+    - neovim
+    - lsd
+    - tmux
+    - watch
+    - gettext
+    - telnet
+    - kind
+    - dive
+    - jq
+    - yq
+    - ruby
+    - grpc
+    - protobuf
+    - protoc-gen-go
+    - ffmpeg
+    - helm
+    - gh
+    - wget
+    - mage
+    - go
+    - nmap
+    - nomad
+    - openssl
+    - packer
+    - pyenv
+    - python
+    - tree
+    - wget
+    - zsh
+    - zsh-syntax-highlighting
+    - podman
+    - minikube
+    - infracost
+    - operator-sdk
+    - mysql-client
+    - bat
+    - git
+    - awscli
+    - lua-language-server
+    - coreutils
+    - ed
+    - findutils
+    - gawk
+    - gnu-sed
+    - gnu-tar
+    - grep
+    - make
+    - jq
+    - bash
+    - clusterctl
+    - kubeseal
+    - kustomize
+    - magic-wormhole
+    - Cmake
+    - rust
+    - node
+
+- name: Install FiraCodeNerdFont
+  script: /bin/bash -c "brew tap homebrew/cask-fonts && brew install --cask font-hack-nerd-font"
+
+- name: Copy Script tools
+  copy:
+    src: "{{ item }}"
+    dest: "~/.local/bin/"
+    mode: 0776
+  with_fileglob:
+    - "../files/scripts/*"
+
+- name: Install PyYAML
+  shell: pip3 install pyyaml

@@ -1,0 +1,23 @@
+---
+global:
+  user: &user "joseramon"
+  group: "staff"
+  username: *user 
+username: *user 
+
+development:
+  golang:
+    version: &golang_version "1.17"
+    mirror: "https://golang.org/dl/go"
+    install_dir: "/usr/local/go/"
+    download_dir: "/tmp/go"
+  etcd:
+    version: 3.3.13
+
+tools:
+  lsd:
+    version: 0.20.1
+
+homebrew_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
+homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
+homebrew_brew_bin_path: /opt/homebrew/bin/brew

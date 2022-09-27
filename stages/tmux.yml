@@ -1,0 +1,24 @@
+---
+- name: Import vars file
+  include_vars: "vars/main.yml"
+
+- name: Install plugin TPM
+  shell: |
+    if [[ ! -d ~/.tmux/plugins/tpm ]];then
+      git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    fi
+
+- name: "Setup TMUX for user: {{ lookup('env', 'USER') }}"
+  copy:
+    src: ../files/tmux/tmux.conf
+    dest: "/Users/{{ lookup('env', 'USER') }}/.tmux.conf"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ global.group }}"
+    mode: '0766'
+  tags:
+    - tmux
+    - tunning
+    - development
+
+- name: Load config
+  shell: "tmux source-file /Users/{{ lookup('env', 'USER') }}/.tmux.conf || true"

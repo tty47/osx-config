@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: false
+  gather_facts: yes
+  tasks:
+   - name: Import vars file
+     include_vars: "vars/main.yml"
+   - name: Setup
+     import_tasks: "./stages/setup.yml"
+     tags: ["setup"]
+   - name: TMUX
+     import_tasks: "./stages/tmux.yml"
+     tags: ["tmux", "tunning"]
+   - name: ZSH
+     import_tasks: "./stages/zsh.yml"
+     tags: ["zsh", "tunning"]
+   - name: NVIM
+     import_tasks: "./stages/nvim.yml"
+     tags: ["vim", "nvim", "tunning"]

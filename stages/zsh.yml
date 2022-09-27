@@ -1,0 +1,78 @@
+---
+- name: Import vars file
+  include_vars: "../vars/main.yml"
+  tags:
+    - nvim
+    - tunning
+    - development
+
+- name: First get the homebrew tap
+  shell: brew tap sambadevi/powerlevel9k
+
+- name: Install ZSH Applications & Plugins
+  become: false
+  homebrew:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: yes
+  with_items:
+    - zsh
+    - zsh-syntax-highlighting
+    - zsh-autosuggestions
+    - powerlevel9k
+
+- name: Installation OhMyZSH - download script
+  get_url:
+    url: https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    validate_certs: false
+    dest: "/tmp/install.sh"
+    mode: 0755
+
+- name: Installation OhMyZSH - exec script
+  command: "/tmp/install.sh"
+  args:
+    executable: /bin/bash
+  ignore_errors: true
+
+- name: Installation zsh-syntax-highlighting
+  git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git 
+    dest: "/Users/{{ lookup('env', 'USER') }}/.oh-my-zsh/zsh-syntax-highlighting"
+    clone: yes
+    recursive: yes
+    force: yes
+    accept_hostkey: yes
+    version: master
+  delegate_to: localhost
+
+- name: "Copy zshrc to user {{ lookup('env', 'USER') }}"
+  copy:
+    src: ../files/zsh/{{ item }}
+    dest: "/Users/{{ lookup('env', 'USER') }}/.{{ item }}"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ global.group }}"
+    mode: '0766'
+    backup: true
+  with_items:
+    - zshrc
+    - extra_alias
+  tags:
+    - zsh
+    - tunning
+    - development
+
+- name: "Copy zshrc to user {{ lookup('env', 'USER') }}"
+  copy:
+    src: ../files/zsh/zshrc
+    dest: "/Users/{{ lookup('env', 'USER') }}/.zshrc"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ global.group }}"
+    mode: '0766'
+    backup: true
+  tags:
+    - zsh
+    - tunning
+    - development
+
+- name: Reload config
+  shell: "source /Users/{{ lookup('env', 'USER') }}/.zshrc"
