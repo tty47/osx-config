@@ -20,7 +20,16 @@ ts.setup {
     "swift",
     "css",
     "html",
-    "lua"
+    "lua",
+    "go",
+    "gomod",
+    "rust",
+    "python",
+    "bash",
+    "dockerfile",
+    "hcl",
+    "nix",
+    "vim"
   },
   autotag = {
     enable = true,
