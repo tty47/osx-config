@@ -17,21 +17,21 @@ M.vnoremap = bind("v")
 M.xnoremap = bind("x")
 M.inoremap = bind("i")
 
-" ------------------------------------------------------------------
-" No more Arrow Keys, deal with it
+-- ------------------------------------------------------------------
+-- No more Arrow Keys, deal with it
 M.noremap <Up> <NOP>
 M.noremap <Down> <NOP>
 M.noremap <Left> <NOP>
 M.noremap <Right> <NOP>
 
-" ------------------------------------------------------------------
-" netrw
-" nnoremap - :Explore<CR>
-" let g:netrw_banner = 0
-" let g:netrw_liststyle = 3
-" let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-" autocmd FileType netrw setl bufhidden=delete
-"-- netrw END
+-- ------------------------------------------------------------------
+-- netrw
+-- nnoremap - :Explore<CR>
+-- let g:netrw_banner = 0
+-- let g:netrw_liststyle = 3
+-- let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+ autocmd FileType netrw setl bufhidden=delete
+-- netrw END
 
 " ------------------------------------------------------------------
 " NERDTree
