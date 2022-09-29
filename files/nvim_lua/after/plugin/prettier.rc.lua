@@ -6,6 +6,7 @@ prettier.setup {
   filetypes = {
     "go",
     "rust",
+    "hcl",
     "css",
     "javascript",
     "javascriptreact",
