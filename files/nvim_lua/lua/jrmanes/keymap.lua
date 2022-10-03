@@ -33,26 +33,27 @@ M.noremap <Right> <NOP>
  autocmd FileType netrw setl bufhidden=delete
 -- netrw END
 
-" ------------------------------------------------------------------
-" NERDTree
+-- ------------------------------------------------------------------
+-- NERDTree
 M.nnoremap <leader>n :NERDTreeFocus<CR>
 M.nnoremap <C-n> :NERDTree<CR>
 M.nnoremap <C-b> :NERDTreeToggle<CR>
 M.nnoremap <C-f> :NERDTreeFind<CR>
-" End NERDTree
+-- End NERDTree
 
-" ------------------------------------------------------------------
-" Tabs
-M.nnoremap <C-j> :tabprevious<CR> 
+-- ------------------------------------------------------------------
+-- Tabs
+M.nnoremap <C-j> :tabprevious<CR>
 M.nnoremap <C-k> :tabnext<CR>
-" End Tabs
 
-" ------------------------------------------------------------------
-" Reload Config
+-- End Tabs
+
+-- ------------------------------------------------------------------
+-- Reload Config
 M.nnoremap <Leader>r :source $MYVIMRC<CR>
 
-" ------------------------------------------------------------------
-" ctrlp
+-- ------------------------------------------------------------------
+-- ctrlp
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
