@@ -4,8 +4,6 @@ vim.opt.nu = true
 
 vim.opt.errorbells = false
 
--- buffer-scoped
-vim.opt.autoindent = true
 -- window-scoped
 vim.opt.cursorline = true
 -- global scope
