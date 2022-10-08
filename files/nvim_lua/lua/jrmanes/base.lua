@@ -11,7 +11,7 @@ vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 vim.opt.backspace = { 'start', 'eol', 'indent' } -- backspace works on every char in insert mode
 vim.opt.completeopt = 'menuone,noselect'
-vim.opt.history = 100000
+-- vim.opt.history = 100000
 
 vim.wo.number = true
 vim.opt.relativenumber = true

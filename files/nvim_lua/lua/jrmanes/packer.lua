@@ -1,8 +1,10 @@
 -- ------------------------------------------------------------------------
 -- -----------------------------  Plugins ---------------------------------
 -- ------------------------------------------------------------------------
--- return require("packer").startup(function(use)
-return require('packer').startup(function()
+vim.cmd [[packadd packer.nvim]]
+
+return require("packer").startup(function(use)
+  -- return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   use {
@@ -15,7 +17,7 @@ return require('packer').startup(function()
   use 'vim-airline/vim-airline' -- https://github.com/vim-airline/vim-airline
   use 'ctrlpvim/ctrlp.vim' --  https://github.com/ctrlpvim/ctrlp.vim
   use 'ryanoasis/vim-devicons' --  https://github.com/ryanoasis/vim-devicons + https://github.com/ryanoasis/nerd-fonts/
-  
+
   -- Git
   use 'tpope/vim-commentary' --  https://github.com/tpope/vim-commentary
   use 'airblade/vim-gitgutter' --  https://github.com/airblade/vim-gitgutter
@@ -38,12 +40,12 @@ return require('packer').startup(function()
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
 
-  use { 'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}} }
+  use { 'nvim-telescope/telescope.nvim', requires = { { 'nvim-lua/popup.nvim' }, { 'nvim-lua/plenary.nvim' } } }
   use 'tpope/vim-surround' -- surround characters shortcuts
   -- use 'nvim-telescope/telescope.nvim'
   -- use 'tpope/vim-eunuch' -- wrappers UNIX commands
   -- use 'tpope/vim-vinegar' -- file browser
-  
+
   ----------------------------------------------------------------------------
   -- LSP completion source for nvim-cmp
   use {
@@ -95,7 +97,7 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
-  
+
   ----------------------------------------------------------------------------
   ---- Sidebar
   use 'preservim/nerdtree'
@@ -113,7 +115,7 @@ return require('packer').startup(function()
   use 'williamboman/mason.nvim'
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use 'L3MON4D3/LuaSnip'
-  
+
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
