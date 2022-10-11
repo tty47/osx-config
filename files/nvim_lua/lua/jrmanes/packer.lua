@@ -16,7 +16,6 @@ return require("packer").startup(function(use)
   -- Must Have
   use 'vim-airline/vim-airline' -- https://github.com/vim-airline/vim-airline
   use 'ctrlpvim/ctrlp.vim' --  https://github.com/ctrlpvim/ctrlp.vim
-  use 'ryanoasis/vim-devicons' --  https://github.com/ryanoasis/vim-devicons + https://github.com/ryanoasis/nerd-fonts/
 
   -- Git
   use 'tpope/vim-commentary' --  https://github.com/tpope/vim-commentary
@@ -80,7 +79,6 @@ return require("packer").startup(function(use)
   use 'gruvbox-community/gruvbox' -- Gruvbox theme
   use 'luisiacc/gruvbox-baby'
   use 'NLKNguyen/papercolor-theme' -- https://github.com/NLKNguyen/papercolor-theme
-  use 'jim-at-jibba/ariake-vim-colors'
   use 'sainnhe/sonokai'
   use 'sainnhe/gruvbox-material'
   use 'shaunsingh/nord.nvim'
@@ -93,7 +91,6 @@ return require("packer").startup(function(use)
   --  use 'folke/tokyonight.nvim', { 'branch': 'main' } -- https://github.com/folke/tokyonight.nvim
 
   -- Tree file viewer
-  use 'kyazdani42/nvim-web-devicons' -- icons when searching
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
