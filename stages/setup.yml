@@ -80,9 +80,10 @@
     - Cmake
     - rust
     - node
+    - rg 
 
-- name: Install FiraCodeNerdFont
-  script: /bin/bash -c "brew tap homebrew/cask-fonts && brew install --cask font-hack-nerd-font"
+      #- name: Install FiraCodeNerdFont
+      #  script: /bin/bash -c "brew tap homebrew/cask-fonts && brew install --cask font-hack-nerd-font"
 
 - name: Copy Script tools
   copy:

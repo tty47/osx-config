@@ -14,9 +14,6 @@
     group: "{{ global.group }}"
   with_items:
     - nvim
-    - nvim/lua/
-    - nvim/plugin/
-    - nvim/ftdetect/
   tags:
     - nvim
     - tunning
@@ -43,63 +40,12 @@
 
 - name: Copy all config files
   copy:
-    src: ../files/nvim_lua
+    src: ../files/nvim
     dest: "/Users/{{ lookup('env', 'USER') }}/.config/"
     owner: "{{ lookup('env', 'USER') }}"
     group: "{{ global.group }}"
     mode: '0644'
   tags:
     - nvim 
-    - tunning
-    - development
-
-  #- name: Load Packer Config
-  #  shell: |
-  #    nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  #  tags:
-  #    - nvim
-  #    - tunning
-  #    - development
-
-- name: "Setup NVIM for user: {{ lookup('env', 'USER') }}"
-  copy:
-    src: ../files/nvim/init.vim
-    dest: "/Users/{{ lookup('env', 'USER') }}/.config/nvim/"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ global.group }}"
-    mode: '0644'
-  tags:
-    - nvim 
-    - tunning
-    - development
-    
-- name: "Copy NVIM go files" 
-  copy:
-    src: ../files/nvim/ftdetect/go.vim
-    dest: "/Users/{{ lookup('env', 'USER') }}/.config/nvim/ftdetect/"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ global.group }}"
-    mode: '0644'
-  tags:
-    - nvim 
-    - tunning
-    - development
-
-- name: "Copy NVIM plugin files" 
-  copy:
-    src: ../files/nvim/plugin/telescope.nvim
-    dest: "/Users/{{ lookup('env', 'USER') }}/.config/nvim/plugin/"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ global.group }}"
-    mode: '0644'
-  tags:
-    - nvim 
-    - tunning
-    - development
-
-- name: Install plugins VIM
-  command: vim +'PlugInstall --sync' +qa
-  tags:
-    - nvim
     - tunning
     - development
