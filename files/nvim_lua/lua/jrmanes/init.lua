@@ -1,6 +1,0 @@
-require("jrmanes.packer")
-require("jrmanes.set")
-require("jrmanes.base")
-require("jrmanes.highlights")
-require("jrmanes.keymap")
-require("jrmanes.remap")
