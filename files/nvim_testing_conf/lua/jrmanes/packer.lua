@@ -2,13 +2,10 @@ vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function(use)
 
-
   use {
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
-
-
 
   ----------------------------------------------------------------------------
   -- Must Have
@@ -21,8 +18,9 @@ require('packer').startup(function(use)
   use 'mkitt/tabline.vim' --  https://github.com/mkitt/tabline.vim
   use 'tommcdo/vim-fugitive-blame-ext'
 
-  use 'windwp/nvim-autopairs'
-  -- use 'mkitt/tabline.vim' -- https://github.com/mkitt/tabline.vim
+  use 'akinsho/nvim-bufferline.lua'
+  use 'lewis6991/gitsigns.nvim'
+  use 'dinhhuy258/git.nvim' -- For git blame & browse
 
   ----------------------------------------------------------------------------
   -- Vim-Poligot
@@ -84,8 +82,11 @@ require('packer').startup(function(use)
   use 'catppuccin/nvim' -- https://github.com/catppuccin/nvim
   use 'tpope/vim-projectionist'
   use 'tomlion/vim-solidity'
+  use 'folke/tokyonight.nvim' -- https://github.com/folke/tokyonight.nvim
   --  use 'folke/tokyonight.nvim', { 'branch': 'main' } -- https://github.com/folke/tokyonight.nvim
-
+  use { "EdenEast/nightfox.nvim", tag = "v1.0.0" }
+  
+  ----------------------------------------------------------------------------
   -- Tree file viewer
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'windwp/nvim-ts-autotag'
@@ -99,15 +100,25 @@ require('packer').startup(function(use)
   --   'romgrk/barbar.nvim',
   --   requires = { 'kyazdani42/nvim-web-devicons' }
   -- }
-
   ----------------------------------------------------------------------------
   -- Other
-  -- use 'nvim-lualine/lualine.nvim' -- Statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }  
+  use {
+      'kyazdani42/nvim-tree.lua',
+    requires = {
+      'kyazdani42/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
-  use 'williamboman/mason.nvim'
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use 'L3MON4D3/LuaSnip'
+  -- use 'williamboman/mason.nvim' https://github.com/williamboman/mason.nvim
+  use 'windwp/nvim-autopairs'
 
   -- Treesitter
   use {
@@ -116,52 +127,17 @@ require('packer').startup(function(use)
     --  run = ':TSUpdate'
   }
 
-  use 'akinsho/nvim-bufferline.lua'
-  use 'lewis6991/gitsigns.nvim'
-  use 'dinhhuy258/git.nvim' -- For git blame & browse
-
-
   ----------------------------------------------------------------------------
   use 'wbthomason/packer.nvim'
   -- use 'neovim/nvim-lspconfig'
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
-  -- use {
-  --   'nvim-telescope/telescope.nvim', tag = '0.1.x',
-  --   requires = {'nvim-lua/plenary.nvim'}
-  -- }
-  -- use 'williamboman/mason.nvim'
-  -- use {
-  --       'hrsh7th/nvim-cmp',
-  --       requires = {
-  --           'hrsh7th/cmp-buffer', 'hrsh7th/cmp-nvim-lsp',
-  --           'hrsh7th/cmp-nvim-lua',
-  --           'octaltree/cmp-look', 'hrsh7th/cmp-path', 'hrsh7th/cmp-calc',
-  --           'f3fora/cmp-spell', 'hrsh7th/cmp-emoji','saadparwaiz1/cmp_luasnip'  
-  --       }
-  -- }
-  -- use {
-  --       'nvim-treesitter/nvim-treesitter',
-  --       run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  -- }
-  -- use 'L3MON4D3/LuaSnip'
-  use {
-      'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icons
-    },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
-  use({
-    "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-    config = function()
-        require("nvim-surround").setup({
-            -- Configuration here, or leave empty to use defaults
-        })
-    end
-  })
-  use { "EdenEast/nightfox.nvim", tag = "v1.0.0" }
+
+  -- use({
+  --   "kylechui/nvim-surround",
+  --   tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+  --   config = function()
+  --       require("nvim-surround").setup({
+  --           -- Configuration here, or leave empty to use defaults
+  --       })
+  --   end
+  -- })
 end)

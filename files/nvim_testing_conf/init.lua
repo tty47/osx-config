@@ -1,13 +1,10 @@
-require 'user.options'
-require 'user.keymaps'
-
-require 'user.packer'
-require 'user.nvim-tree'
-require 'user.treesitter'
-require 'user.lualine'
-
-require 'user.cmp'
-
-require 'user.settings'
-require 'user.lsp'
-require 'user.colorscheme'
+require 'jrmanes.options'
+require 'jrmanes.keymaps'
+require 'jrmanes.packer'
+require 'jrmanes.nvim-tree'
+require 'jrmanes.treesitter'
+require 'jrmanes.lualine'
+require 'jrmanes.cmp'
+require 'jrmanes.settings'
+require 'jrmanes.lsp'
+require 'jrmanes.colorscheme'
