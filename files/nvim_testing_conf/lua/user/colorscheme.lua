@@ -1,8 +1,10 @@
-require('nightfox').setup({
-  options = {
-    -- Compiled file's destination location
-    transparent = true,    -- Disable setting background
-  }
-})
+-- require('nightfox').setup({
+--   options = {
+--     -- Compiled file's destination location
+--     transparent = true,    -- Disable setting background
+--   }
+-- })
 
-vim.cmd("colorscheme nightfox")
+-- vim.cmd("colorscheme nightfox")
+
+vim.cmd("colorscheme tokyonight")

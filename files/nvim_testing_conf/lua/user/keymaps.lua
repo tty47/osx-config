@@ -7,7 +7,11 @@ vim.g.mapleader = ' '
 keymap('n', '<leader>w', ':w<cr>')
 keymap('n', '<leader>f', ':Files<cr>')
 
-keymap('n', '<leader>d', ':NvimTreeToggle<cr>')
+-- keymap('n', '<leader>d', ':NvimTreeToggle<cr>')
+keymap('n', '<leader>n', ':NERDTreeFocus<cr>')
+keymap('n', '<C-n>', ':NERDTree<cr>')
+keymap('n', '<C-b>', ':NERDTreeToggle<cr>')
+keymap('n', '<C-f>', ':NERDTreeFind<CR>')
 
 keymap('n', '<leader>tv', ':botright vnew <Bar> :terminal<cr>')
 keymap('n', '<leader>th', ':botright new <Bar> :terminal<cr>')
