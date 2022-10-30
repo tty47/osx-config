@@ -54,8 +54,6 @@ return require("packer").startup(function(use)
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
   use 'hrsh7th/nvim-cmp' -- Completion
-  -- use 'tzachar/cmp-tabnine', { 'do': './install.sh' }
-  -- use("tzachar/cmp-tabnine", { run = "./install.sh" })
   use 'onsails/lspkind-nvim'
   use 'nvim-lua/lsp_extensions.nvim'
 
