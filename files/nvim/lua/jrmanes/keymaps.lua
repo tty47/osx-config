@@ -1,4 +1,4 @@
-local keymap = function(mode, shortcut, command) 
+local keymap = function(mode, shortcut, command)
   vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
 end
 
@@ -12,6 +12,11 @@ keymap('n', '<leader>pv', ':Ex<cr>')
 keymap('n', '<leader>tv', ':botright vnew <Bar> :terminal<cr>')
 keymap('n', '<leader>th', ':botright new <Bar> :terminal<cr>')
 keymap('t', '<Esc>', '<C-\\><C-n>')
+
+------------------------------------------------------------------
+-- Save ctr+s
+keymap('n', '<C-s>', ':w<cr>')
+keymap('i', '<C-s>', '<Esc>:w<CR>a')
 
 ------------------------------------------------------------------
 keymap('n', '<C-j>', '<C-W>j')
@@ -49,6 +54,7 @@ keymap('n', '<leader>nt', ':Ntree<cr>')
 -- Resize
 keymap('n', '<leader>+', ':vertical resize +5<cr>')
 keymap('n', '<leader>-', ':vertical resize -5<cr>')
+
 keymap('n', '<leader>rp', ':resize 100<cr>')
 
 ------------------------------------------------------------------
