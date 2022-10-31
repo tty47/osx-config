@@ -56,9 +56,8 @@ require('packer').startup(function(use)
   ----------------------------------------------------------------------------
   --  Go
   --   use 'fatih/vim-go', { 'do': ':GoInstallBinaries' } -- https://github.com/fatih/vim-go
-  --   use 'neoclide/coc.nvim', {'branch': 'release'}     -- https://github.com/neoclide/coc.nvim
   use 'fatih/vim-go' -- https://github.com/fatih/vim-go
-  -- use 'neoclide/coc.nvim'  -- https://github.com/neoclide/coc.nvim
+  use 'neoclide/coc.nvim'  -- https://github.com/neoclide/coc.nvim
   -- use { 'neoclide/coc.nvim', { branch = 'release' } } -- https://github.com/neoclide/coc.nvim
   use 'SirVer/ultisnips' -- https://github.com/sirver/UltiSnips
   use 'darrikonn/vim-gofmt'
@@ -78,14 +77,13 @@ require('packer').startup(function(use)
   use 'shaunsingh/nord.nvim'
   use 'cocopon/iceberg.vim'
   use 'jim-at-jibba/ariake-vim-colors'
-  --  use 'catppuccin/nvim', {'as': 'catppuccin'} -- https://github.com/catppuccin/nvim
   use 'catppuccin/nvim' -- https://github.com/catppuccin/nvim
   use 'tpope/vim-projectionist'
   use 'tomlion/vim-solidity'
   use 'folke/tokyonight.nvim' -- https://github.com/folke/tokyonight.nvim
   --  use 'folke/tokyonight.nvim', { 'branch': 'main' } -- https://github.com/folke/tokyonight.nvim
   use { "EdenEast/nightfox.nvim", tag = "v1.0.0" }
-  
+
   ----------------------------------------------------------------------------
   -- Tree file viewer
   use 'kyazdani42/nvim-web-devicons' -- File icons
@@ -95,17 +93,13 @@ require('packer').startup(function(use)
   ----------------------------------------------------------------------------
   ---- Sidebar
   use 'preservim/nerdtree'
-  -- use { 'preservim/nerdtree', { on = "NERDTreeToggle" } }
-  -- use {
-  --   'romgrk/barbar.nvim',
-  --   requires = { 'kyazdani42/nvim-web-devicons' }
-  -- }
+
   ----------------------------------------------------------------------------
   -- Other
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }  
+  }
   use {
       'kyazdani42/nvim-tree.lua',
     requires = {
@@ -129,8 +123,6 @@ require('packer').startup(function(use)
 
   ----------------------------------------------------------------------------
   use 'wbthomason/packer.nvim'
-  -- use 'neovim/nvim-lspconfig'
-
   -- use({
   --   "kylechui/nvim-surround",
   --   tag = "*", -- Use for stability; omit to use `main` branch for the latest features
