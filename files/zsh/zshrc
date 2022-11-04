@@ -187,6 +187,7 @@ alias gcd='git checkout dev && gfp'
 #alias gurl='git config --get remote.origin.url'
 #alias gourl='URL=`git config --get remote.origin.url` && google-chrome $URL'
 alias gourl='open $(git ls-remote --get-url)'
+alias gw="git worktree"
 
 # Kubernetes
 alias k='kubectl'
