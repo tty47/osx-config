@@ -82,6 +82,7 @@
     - node
     - yarn
     - rg
+    - autojump
 
       #- name: Install FiraCodeNerdFont
       #  script: /bin/bash -c "brew tap homebrew/cask-fonts && brew install --cask font-hack-nerd-font"
