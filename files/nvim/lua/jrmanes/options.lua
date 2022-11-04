@@ -84,6 +84,7 @@ vim.o.wildignore = 'deps,.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,
 ---------------------------------------------------------------------
 -- Set
 vim.opt.mouse = 'a'
+vim.opt.clipboard = 'unnamed' -- Copy from vim to system
 vim.opt.nu = true
 vim.opt.errorbells = false
 -- window-scoped
