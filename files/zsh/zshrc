@@ -190,6 +190,7 @@ alias gcd='git checkout dev && gfp'
 #alias gourl='URL=`git config --get remote.origin.url` && google-chrome $URL'
 alias gourl='open $(git ls-remote --get-url)'
 alias gw="git worktree"
+alias gwl="git worktree list"
 
 # Kubernetes
 alias k='kubectl'
@@ -270,6 +271,14 @@ function extractPorts() {
 # Show open ports
 function nmapOpenPorts(){
     sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn $1
+}
+# gw-add-branch creates a new git worktree + branch with the same name
+function gw-add-branch(){
+    if [ -n "$1" ];then
+    	git worktree add $1 -b $1
+    else
+    	echo "Usage:\ngw-add-branch <branch-name>"
+    fi
 }
 
 # =============================================================================
