@@ -28,7 +28,7 @@ keymap('n', '<C-l>', '<C-W>l')
 -- NERDTree
 -- keymap('n', '<leader>d', ':NvimTreeToggle<cr>')
 keymap('n', '<leader>n', ':NERDTreeFocus<cr>')
-keymap('n', '<C-n>', ':NERDTree<cr>')
+-- keymap('n', '<C-n>', ':NERDTree<cr>')
 keymap('n', '<C-b>', ':NERDTreeToggle<cr>')
 keymap('n', '<C-f>', ':NERDTreeFind<CR>')
 
@@ -40,7 +40,7 @@ keymap('n', '<leader>s', ':Telescope live_grep<cr>')
 ------------------------------------------------------------------
 -- Tabs
 keymap('n', '<C-j>', ':tabprevious<cr>')
-keymap('n', '<C-k>', ':tabnext<cr>')
+keymap('n', '<C-n>', ':tabnext<cr>')
 
 ------------------------------------------------------------------
 -- Reload Config
