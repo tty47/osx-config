@@ -95,9 +95,7 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{#5eacd3}%}%{%b%f%k%F{
 POWERLEVEL9K_NVM_BACKGROUND=none
 POWERLEVEL9K_NVM_FOREGROUND=green
 POWERLEVEL9K_NODE_ICON='%fvia %F{green}⬢'
-
 ############ END- POWERLEVEL THEME SETTINGS ##############
-
 
 # =============================================================================
 
@@ -108,13 +106,13 @@ POWERLEVEL9K_NODE_ICON='%fvia %F{green}⬢'
 # Add wisely, as too many plugins slow down shell startup.
 # =============================================================================
 plugins=(
- git
- docker
- docker-compose
- zsh-syntax-highlighting
- zsh-autosuggestions
- autojump
- dnf
+  git
+  docker
+  docker-compose
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  autojump
+  dnf
 )
 
 # =============================================================================
@@ -154,7 +152,7 @@ source $ZSH/oh-my-zsh.sh
 # =============================================================================
 # Export utils
 # The following line allows you to pull images for amd64 arch
-export DOCKER_DEFAULT_PLATFORM=linux/amd64  
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # =============================================================================
