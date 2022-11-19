@@ -82,6 +82,7 @@
     - node
     - yarn
     - rg
+    - tag-ag
     - autojump
 
       #- name: Install FiraCodeNerdFont
