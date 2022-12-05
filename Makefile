@@ -1,7 +1,7 @@
 # Setup computer
 .PHONY: user clear all install_ansible setup setup_debug
 # --------------------------------------
-all: clear install_ansible setup
+all: clear install_ansible setup_debug
 # --------------------------------------
 clear:
 	clear
