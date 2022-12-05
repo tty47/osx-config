@@ -16,6 +16,13 @@
   script: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   when: not brew.stat.exists
 
+- name: Homebrew Tab Applications
+  become: false
+  shell: |
+    brew tap "{{ item }}"
+  with_items:
+    - "aykamko/tag-ag"
+
 - name: Install System Applications
   become: false
   homebrew:
