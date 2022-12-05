@@ -7,6 +7,8 @@
      include_vars: "vars/main.yml"
    - name: Setup
      import_tasks: "./stages/setup.yml"
+   - name: Git
+     import_tasks: "./stages/git.yml"
      tags: ["setup"]
    - name: TMUX
      import_tasks: "./stages/tmux.yml"
