@@ -88,6 +88,7 @@ require('packer').startup(function(use)
   ----------------------------------------------------------------------------
   -- Tree file viewer
   use 'kyazdani42/nvim-web-devicons' -- File icons
+  use 'ryanoasis/vim-devicons' -- NERDTREE icons
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
 
