@@ -78,8 +78,7 @@ require('packer').startup(function(use)
   use 'shaunsingh/nord.nvim'
   use 'cocopon/iceberg.vim'
   use 'jim-at-jibba/ariake-vim-colors'
-  -- use 'catppuccin/nvim' -- https://github.com/catppuccin/nvim
-  use { "catppuccin/nvim", as = "catppuccin" }
+  use { "catppuccin/nvim", as = "catppuccin" } -- https://github.com/catppuccin/nvim
   use 'tpope/vim-projectionist'
   use 'tomlion/vim-solidity'
   use 'folke/tokyonight.nvim' -- https://github.com/folke/tokyonight.nvim
