@@ -164,6 +164,7 @@ alias rprofile="source ~/.zshrc"
 alias m="make"
 alias t="terraform"
 alias vim="nvim"
+alias v="nvim"
 alias copy='xclip -sel clip'
 alias c='xclip -sel clip'
 alias pwdc='pwd | xclip -sel clip'
