@@ -156,8 +156,7 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 alias profile="vim ~/.zshrc && source ~/.zshrc"
 alias rprofile="source ~/.zshrc"
 
-#alias o="nautilus . &"s
-#alias open="nautilus . &"
+# Tools
 alias m="make"
 alias t="terraform"
 alias vim="nvim"
