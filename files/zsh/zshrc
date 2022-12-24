@@ -221,10 +221,10 @@ function setup_tf(){
 }
 # Get pods in nodes
 function pono(){
-	 for i in $(kubectl get no --no-headers -o=custom-columns=NAME:.metadata.name); do 
-		 echo -e "\e[0;37m\033[1m ---------- Node: \e[0;33m\033[1m $i  \e[0;37m\033[1m ----------\033[0m\e[0m \n"
-		 kubectl describe no $i |grep Non -A 35 |grep -B 30 -m 1 "Allocated"|grep -v "Allocated"
-		 echo "\n"
+	for i in $(kubectl get no --no-headers -o=custom-columns=NAME:.metadata.name); do 
+		echo -e "\e[0;37m\033[1m ---------- Node: \e[0;33m\033[1m $i  \e[0;37m\033[1m ----------\033[0m\e[0m \n"
+		kubectl describe no $i |grep Non -A 35 |grep -B 30 -m 1 "Allocated"|grep -v "Allocated"
+		echo "\n"
 	done
 }
 # Shows the allocated resources in the nodes
