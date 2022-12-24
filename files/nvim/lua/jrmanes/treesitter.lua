@@ -21,7 +21,7 @@ require'nvim-treesitter.configs'.setup {
     "nix",
     "vim"
   },
-  
+
   autotag = {
     enable = true,
   },

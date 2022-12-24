@@ -55,9 +55,8 @@ require('packer').startup(function(use)
 
   ----------------------------------------------------------------------------
   --  Go
-  --   use 'fatih/vim-go', { 'do': ':GoInstallBinaries' } -- https://github.com/fatih/vim-go
   use 'fatih/vim-go' -- https://github.com/fatih/vim-go
-   use 'neoclide/coc.nvim'  -- https://github.com/neoclide/coc.nvim
+  use 'neoclide/coc.nvim'  -- https://github.com/neoclide/coc.nvim
   -- use {'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile'}
   -- use { 'neoclide/coc.nvim', { branch = 'release' } } -- https://github.com/neoclide/coc.nvim
   use 'SirVer/ultisnips' -- https://github.com/sirver/UltiSnips
