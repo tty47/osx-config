@@ -22,6 +22,7 @@
     brew tap "{{ item }}"
   with_items:
     - "aykamko/tag-ag"
+    - "homebrew/cask-fonts" # Install FiraCodeNerdFont
 
 - name: Install System Applications
   become: false
@@ -92,8 +93,13 @@
     - tag-ag
     - autojump
 
-#- name: Install FiraCodeNerdFont
-#  script: /bin/bash -c "brew tap homebrew/cask-fonts && brew install --cask font-hack-nerd-font"
+- name: Homebrew Cask Applications
+  become: false
+  shell: |
+    brew install --cask "{{ item }}"
+  with_items:
+    - "alacritty"
+    - "font-hack-nerd-font"
 
 - name: Copy Script tools
   copy:
