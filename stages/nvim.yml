@@ -19,6 +19,16 @@
     - tunning
     - development
 
+- name: Install NeoVim
+  shell: |
+    bew unlink neovim
+    brew install --HEAD neovim
+    brew reinstall neovim
+  tags:
+    - nvim
+    - tunning
+    - development
+
 - name: Download Packer Installer
   shell: |
     if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
