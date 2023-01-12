@@ -63,4 +63,5 @@ vim.keymap.set("n", "K", ":m '<-2<CR>gv=gv")
 
 ------------------------------------------------------------------
 -- COC
-vim.cmd([[ inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>" ]])
+-- Commented due to plugin disabled
+-- vim.cmd([[ inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>" ]])
