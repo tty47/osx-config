@@ -92,7 +92,7 @@ require('packer').startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
 
   ----------------------------------------------------------------------------
-  ---- Sidebar
+  -- Sidebar
   use 'preservim/nerdtree'
 
   ----------------------------------------------------------------------------
@@ -102,7 +102,7 @@ require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use {
-      'kyazdani42/nvim-tree.lua',
+    'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icons
     },

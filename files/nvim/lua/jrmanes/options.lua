@@ -1,3 +1,4 @@
+-- options.lua
 vim.cmd("autocmd!")
 
 vim.g.mapleader = " "
