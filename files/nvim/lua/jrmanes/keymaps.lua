@@ -5,8 +5,14 @@ end
 ------------------------------------------------------------------
 vim.g.mapleader = ' '
 ------------------------------------------------------------------
+-- Options
 keymap('n', '<leader>w', ':w<cr>')
 keymap('n', '<leader>pv', ':Ex<cr>')
+-- clean search: https://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting
+keymap('n', '<leader>l', ':noh<cr>')
+
+-- find and replace -- auto add command
+keymap('n', '<leader>fr', ':%s/')
 
 ------------------------------------------------------------------
 keymap('n', '<leader>tv', ':botright vnew <Bar> :terminal<cr>')
@@ -27,8 +33,8 @@ keymap('n', '<C-l>', '<C-W>l')
 ------------------------------------------------------------------
 -- NERDTree
 -- keymap('n', '<leader>d', ':NvimTreeToggle<cr>')
-keymap('n', '<leader>n', ':NERDTreeFocus<cr>')
 -- keymap('n', '<C-n>', ':NERDTree<cr>')
+keymap('n', '<leader>n', ':NERDTreeFocus<cr>')
 keymap('n', '<C-b>', ':NERDTreeToggle<cr>')
 keymap('n', '<C-f>', ':NERDTreeFind<CR>')
 
