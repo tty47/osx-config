@@ -4,6 +4,6 @@ if [ -z "$1" ];then
 	tmux split-window -h -p 66 -c ~/
 	tmux split-window -h -p 50 -c ~/
 else 
-	tmux split-window -h -p 66 -c $1	
+	tmux split-window -h -p 66 -c $1
 	tmux split-window -h -p 50 -c $1
 fi
