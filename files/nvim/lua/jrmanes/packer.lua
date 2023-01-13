@@ -44,12 +44,17 @@ require('packer').startup(function(use)
   ----------------------------------------------------------------------------
   -- LSP completion source for nvim-cmp
   use {
-    'neovim/nvim-lspconfig',
+    'neovim/nvim-lspconfig', -- Configurations for Nvim LSP
     'williamboman/mason-lspconfig.nvim',
   }
+
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
   use 'hrsh7th/nvim-cmp' -- Completion
+  -- Add from example config
+  use 'hrsh7th/cmp-path' -- https://github.com/hrsh7th/nvim-cmp
+  use 'hrsh7th/cmp-cmdline'
+
   use 'onsails/lspkind-nvim'
   use 'nvim-lua/lsp_extensions.nvim'
 
