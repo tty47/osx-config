@@ -58,7 +58,6 @@ require('packer').startup(function(use)
   -- Autocompletion
   use 'hrsh7th/nvim-cmp' -- https://github.com/hrsh7th/nvim-cmp
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-  use 'L3MON4D3/LuaSnip'
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
   use 'saadparwaiz1/cmp_luasnip'
 
@@ -67,6 +66,10 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'onsails/lspkind-nvim'
   use 'nvim-lua/lsp_extensions.nvim'
+
+  -- Snippets
+  use 'L3MON4D3/LuaSnip'
+  use 'rafamadriz/friendly-snippets'
 
   ----------------------------------------------------------------------------
   --  Go
