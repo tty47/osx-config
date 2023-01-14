@@ -1,11 +1,6 @@
 vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function(use)
-  use {
-    'svrana/neosolarized.nvim',
-    requires = { 'tjdevries/colorbuddy.nvim' }
-  }
-
   ----------------------------------------------------------------------------
   -- Must Have
   use 'vim-airline/vim-airline' -- https://github.com/vim-airline/vim-airline
@@ -15,10 +10,10 @@ require('packer').startup(function(use)
   use 'tpope/vim-commentary' --  https://github.com/tpope/vim-commentary
   use 'airblade/vim-gitgutter' --  https://github.com/airblade/vim-gitgutter
   use 'mkitt/tabline.vim' --  https://github.com/mkitt/tabline.vim
-  use 'tommcdo/vim-fugitive-blame-ext'
+  -- use 'tommcdo/vim-fugitive-blame-ext' -- https://github.com/tommcdo/vim-fugitive-blame-ext
 
-  use 'akinsho/nvim-bufferline.lua'
-  use 'lewis6991/gitsigns.nvim'
+  use 'akinsho/nvim-bufferline.lua' -- https://github.com/akinsho/bufferline.nvim
+  use 'lewis6991/gitsigns.nvim' -- https://github.com/lewis6991/gitsigns.nvim
   use 'dinhhuy258/git.nvim' -- For git blame & browse
 
   ----------------------------------------------------------------------------
@@ -27,7 +22,6 @@ require('packer').startup(function(use)
 
   ----------------------------------------------------------------------------
   -- Telescope requirements...
-  --  use 'junegunn/fzf', { 'do': { -> fzf#install() } } -- FZF
   use 'junegunn/fzf' -- FZF
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
@@ -60,7 +54,9 @@ require('packer').startup(function(use)
      },
   }
 
-  use 'hrsh7th/nvim-cmp' -- Autocompletion
+  ----------------------------------------------------------------------------
+  -- Autocompletion
+  use 'hrsh7th/nvim-cmp' -- https://github.com/hrsh7th/nvim-cmp
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
   use 'L3MON4D3/LuaSnip'
   use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
@@ -91,21 +87,24 @@ require('packer').startup(function(use)
   use 'rust-lang/rust.vim'
 
   ----------------------------------------------------------------------------
-  -- Themes
-  use 'gruvbox-community/gruvbox' -- Gruvbox theme
-  use 'luisiacc/gruvbox-baby'
-  use 'NLKNguyen/papercolor-theme' -- https://github.com/NLKNguyen/papercolor-theme
-  use 'sainnhe/sonokai'
-  use 'sainnhe/gruvbox-material'
-  use 'shaunsingh/nord.nvim'
-  use 'cocopon/iceberg.vim'
-  use 'jim-at-jibba/ariake-vim-colors'
+  -- Themes - commented those that I'm currently not using
+  -- use 'gruvbox-community/gruvbox' -- Gruvbox theme
+  -- use 'luisiacc/gruvbox-baby'
+  -- use 'NLKNguyen/papercolor-theme' -- https://github.com/NLKNguyen/papercolor-theme
+  -- use 'sainnhe/sonokai'
+  -- use 'sainnhe/gruvbox-material'
+  -- use 'shaunsingh/nord.nvim'
+  -- use 'cocopon/iceberg.vim'
+  -- use 'jim-at-jibba/ariake-vim-colors'
   use { "catppuccin/nvim", as = "catppuccin" } -- https://github.com/catppuccin/nvim
-  use 'tpope/vim-projectionist'
-  use 'tomlion/vim-solidity'
-  use 'folke/tokyonight.nvim' -- https://github.com/folke/tokyonight.nvim
-  --  use 'folke/tokyonight.nvim', { 'branch': 'main' } -- https://github.com/folke/tokyonight.nvim
-  use { "EdenEast/nightfox.nvim", tag = "v1.0.0" }
+  -- use 'tpope/vim-projectionist'
+  -- use 'tomlion/vim-solidity'
+  -- use 'folke/tokyonight.nvim' -- https://github.com/folke/tokyonight.nvim
+  -- use { "EdenEast/nightfox.nvim", tag = "v1.0.0" }
+  -- use {
+  --   'svrana/neosolarized.nvim',
+  --   requires = { 'tjdevries/colorbuddy.nvim' }
+  -- }
 
   use { -- Fancier statusline
     'nvim-lualine/lualine.nvim',
