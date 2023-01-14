@@ -75,6 +75,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 -- vim.cmd[[set listchars=eol:↓,tab:\ \ ┊,trail:●,extends:…,precedes:…,space:·]])
 -- vim.cmd[[set listchars=eol:⏎,tab:\ \ ┊,trail:●,extends:…,precedes:…,space:·]]
 vim.cmd[[set listchars=eol:¬,tab:\ \ ┊,trail:●,extends:…,precedes:…,space:·]]
+-- vim.cmd[[set listchars=eol:¬,tab:\ \ ┊,trail:●,extends:…,precedes:…]]
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append { 'r' }
