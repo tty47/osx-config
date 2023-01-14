@@ -1,6 +1,6 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -12,17 +12,17 @@ local on_attach = function(client, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
   -- Enable completion triggered by <c-x><c-o>
---  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  --  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
---   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  --   vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
@@ -36,7 +36,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-require'lspconfig'.sumneko_lua.setup{
+require 'lspconfig'.sumneko_lua.setup {
   settings = {
     Lua = {
       diagnostics = {
@@ -56,17 +56,17 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-require('lspconfig')['tsserver'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
+require('lspconfig')['tsserver'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
 }
-require('lspconfig')['rust_analyzer'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    -- Server-specific settings...
-    settings = {
-      ["rust-analyzer"] = {}
-    }
+require('lspconfig')['rust_analyzer'].setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  -- Server-specific settings...
+  settings = {
+    ["rust-analyzer"] = {}
+  }
 }
 
 local protocol = require('vim.lsp.protocol')
@@ -113,7 +113,29 @@ local lspconfig = require('lspconfig')
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 -- Defaul: local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
 -- https://github.com/omerxx/dotfiles/blob/master/nvim/init.lua
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls' }
+local servers = {
+  'bashls',
+  'clangd',
+  'cssls',
+  'dockerls',
+  'gopls',
+  'grammarly',
+  'html',
+  'jsonls',
+  'tsserver',
+  'sumneko_lua',
+  'rnix-lsp',
+  'pyright',
+  'pylsp',
+  'rust_analyzer',
+  'sqlls',
+  'tailwindcss',
+  'terraformls',
+  'tflint',
+  'vuels',
+  'yamlls'
+}
+
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     -- on_attach = my_custom_on_attach,
@@ -190,7 +212,7 @@ require('lspconfig').sumneko_lua.setup {
       workspace = {
         library = vim.api.nvim_get_runtime_file('', true),
         checkThirdParty = false,
-      },
+e     },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = { enable = false },
     },
@@ -211,7 +233,7 @@ local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()
-   require('go.format').goimport()
+    require('go.format').goimport()
   end,
   group = format_sync_grp,
 })

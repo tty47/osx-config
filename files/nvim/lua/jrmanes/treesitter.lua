@@ -1,10 +1,15 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or 'all'
   ensure_installed = {
+    "c",
     "tsx",
     "toml",
     "fish",
     "php",
+    "java",
+    "javascript",
+    "typescript",
+    "tsx",
     "json",
     "yaml",
     "swift",
@@ -19,6 +24,7 @@ require'nvim-treesitter.configs'.setup {
     "dockerfile",
     "hcl",
     "nix",
+    "markdown",
     "vim"
   },
 
@@ -26,7 +32,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
+  -- Install parsers synchronously ()
   sync_install = false,
 
   -- Automatically install missing parsers when entering buffer
