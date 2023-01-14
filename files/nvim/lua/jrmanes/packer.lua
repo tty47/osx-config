@@ -1,7 +1,6 @@
 vim.cmd [[packadd packer.nvim]]
 
 require('packer').startup(function(use)
-
   use {
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
@@ -43,18 +42,33 @@ require('packer').startup(function(use)
 
   ----------------------------------------------------------------------------
   -- LSP completion source for nvim-cmp
-  use {
-    'neovim/nvim-lspconfig', -- Configurations for Nvim LSP
-    'williamboman/mason-lspconfig.nvim',
+  -- use {
+  --   'neovim/nvim-lspconfig', -- Configurations for Nvim LSP
+  --   'williamboman/mason-lspconfig.nvim',
+  -- }
+
+  -- https://github.com/omerxx/dotfiles/blob/master/nvim/init.lua#L56
+  use { -- LSP Configuration & Plugins
+    'neovim/nvim-lspconfig',
+     requires = {
+       -- Automatically install LSPs to stdpath for neovim
+       'williamboman/mason.nvim',
+       'williamboman/mason-lspconfig.nvim',
+
+       -- Useful status updates for LSP
+       'j-hui/fidget.nvim',
+     },
   }
 
-  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
+  use 'hrsh7th/nvim-cmp' -- Autocompletion
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/nvim-cmp' -- Completion
+  use 'L3MON4D3/LuaSnip'
+  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
+  use 'saadparwaiz1/cmp_luasnip'
+
   -- Add from example config
   use 'hrsh7th/cmp-path' -- https://github.com/hrsh7th/nvim-cmp
   use 'hrsh7th/cmp-cmdline'
-
   use 'onsails/lspkind-nvim'
   use 'nvim-lua/lsp_extensions.nvim'
 
@@ -66,6 +80,10 @@ require('packer').startup(function(use)
   -- use { 'neoclide/coc.nvim', { branch = 'release' } } -- https://github.com/neoclide/coc.nvim
   use 'SirVer/ultisnips' -- https://github.com/sirver/UltiSnips
   use 'darrikonn/vim-gofmt'
+
+  -- https://github.com/ray-x/go.nvim
+  use 'ray-x/go.nvim'
+  use 'ray-x/guihua.lua' -- recommanded if need floating window support
 
   ----------------------------------------------------------------------------
   -- Rust
@@ -89,6 +107,11 @@ require('packer').startup(function(use)
   --  use 'folke/tokyonight.nvim', { 'branch': 'main' } -- https://github.com/folke/tokyonight.nvim
   use { "EdenEast/nightfox.nvim", tag = "v1.0.0" }
 
+  use { -- Fancier statusline
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+
   ----------------------------------------------------------------------------
   -- Tree file viewer
   use 'kyazdani42/nvim-web-devicons' -- File icons
@@ -102,10 +125,9 @@ require('packer').startup(function(use)
 
   ----------------------------------------------------------------------------
   -- Other
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+  use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
+
+  ----------------------------------------------------------------------------
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -116,7 +138,6 @@ require('packer').startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
   use 'glepnir/lspsaga.nvim' -- LSP UIs
-  use 'L3MON4D3/LuaSnip'
   -- use 'williamboman/mason.nvim' https://github.com/williamboman/mason.nvim
   use 'windwp/nvim-autopairs'
 
@@ -138,4 +159,26 @@ require('packer').startup(function(use)
   --       })
   --   end
   -- })
+
+  ----------------------------------------------------------------------------
+  -- Floating terminal: https://github.com/numToStr/FTerm.nvim
+  use { 'numToStr/FTerm.nvim',
+    config = function()
+    local map = vim.api.nvim_set_keymap
+    local opts = { noremap = true, silent = true }
+
+    map('n', '<leader>tj', '<CMD>lua require("FTerm").toggle()<CR>', opts)
+    map('t', '<leader>tj', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', opts)
+    require 'FTerm'.setup({
+      blend = 18,
+      dimensions = {
+        height = 0.9,
+        width = 0.9,
+        x = 0.5,
+        y = 0.5
+      }
+    })
+    end
+  }
+  ----------------------------------------------------------------------------
 end)
