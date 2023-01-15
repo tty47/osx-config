@@ -124,7 +124,6 @@ local servers = {
   'jsonls',
   'tsserver',
   'sumneko_lua',
-  'rnix-lsp',
   'pyright',
   'pylsp',
   'rust_analyzer',
