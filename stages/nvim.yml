@@ -29,6 +29,17 @@
     - tunning
     - development
 
+ # https://github.com/neovim/nvim-lspconfig/wiki/Installing-language-servers#automatically
+- name: Install LSP servers
+  become: false
+  homebrew:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: yes
+  with_items:
+    - lua-language-server
+    - bash-language-server
+
 - name: Download Packer Installer
   shell: |
     if [[ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
