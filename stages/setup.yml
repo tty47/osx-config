@@ -70,7 +70,6 @@
     - bat
     - git
     - awscli
-    - lua-language-server # https://github.com/neovim/nvim-lspconfig/wiki/Installing-language-servers#automatically
     - coreutils
     - ed
     - findutils
