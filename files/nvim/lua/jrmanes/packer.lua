@@ -24,7 +24,7 @@ require('packer').startup(function(use)
   -- Telescope requirements...
   use 'junegunn/fzf' -- FZF
   use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
+  -- use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope-fzy-native.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
 
