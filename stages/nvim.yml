@@ -39,6 +39,7 @@
   with_items:
     - lua-language-server
     - bash-language-server
+    - yaml-language-server
 
 - name: Download Packer Installer
   shell: |
