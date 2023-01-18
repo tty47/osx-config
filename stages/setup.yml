@@ -99,6 +99,7 @@
   with_items:
     - "alacritty"
     - "font-hack-nerd-font"
+    - "keka"
 
 - name: Copy Script tools
   copy:
