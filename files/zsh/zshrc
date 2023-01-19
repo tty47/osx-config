@@ -141,7 +141,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#export GOVERSION=1.17.5
+export GOVERSION=1.19.3
 #export GOROOT=/usr/local/go
 #export GOPATH=~/go
 #export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
@@ -284,7 +284,8 @@ fi
 
 # =============================================================================
 # Paths
-export PATH=/usr/local/bin:/Users/$USER/go/bin:/Users/$USER/.local:/Users/$USER/.local/bin:/usr/local/go/go1.17/go/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/Users/$USER/.local:/Users/$USER/.local/bin:/usr/local/go/go${GOVERSION}/go/bin:/usr/bin:/bin:/usr/sbin:/sbin
+#export PATH=/usr/local/bin:/Users/$USER/go/bin:/Users/$USER/.local:/Users/$USER/.local/bin:/usr/local/go/go1.17/go/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=:/opt/homebrew/opt/mysql-client/bin/:$PATH
 export PATH=$PATH:/usr/local/go/bin
@@ -292,18 +293,18 @@ export PATH=$PATH:/usr/local/go/bin
 PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 # =============================================================================
 
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
+PATH="/usr/local/bin/bash:${PATH}"
+export PATH
+
 # Kubernetes contrib -> https://github.com/kubernetes/community/blob/master/contributors/devel/development.md
-# This ensures that the GNU tools are found first in your path. 
+# This ensures that the GNU tools are found first in your path.
 GNUBINS="$(find `brew --prefix`/opt -type d -follow -name gnubin -print)"
 for bindir in ${GNUBINS[@]}
 do
   export PATH=$bindir:$PATH
 done
-
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
-PATH="/usr/local/bin/bash:${PATH}"
-export PATH
 
 # Load fzf config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
