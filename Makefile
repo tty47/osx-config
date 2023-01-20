@@ -10,13 +10,13 @@ change_owner:
 	sudo chown -R $(shell whoami) /opt/homebrew
 
 setup:
-	ansible-playbook main.yml --extra-vars "username=$(whoami)"
+	ansible-playbook main.yml --extra-vars "username=`whoami`"
 
 setup_debug:
-	ansible-playbook main.yml --extra-vars "username=$(whoami)" -vvv
+	ansible-playbook main.yml --extra-vars "username=`whoami`" -vvv
 
 nvim:
-	ansible-playbook main.yml --extra-vars "username=$(whoami)" -vvv -t nvim
+	ansible-playbook main.yml --extra-vars "username=`whoami`" -vvv -t nvim
 
 zsh:
-	ansible-playbook main.yml --extra-vars "username=$(whoami)" -vvv -t zsh
+	ansible-playbook main.yml --extra-vars "username=`whoami`" -vvv -t zsh
