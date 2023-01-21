@@ -20,3 +20,6 @@ nvim:
 
 zsh:
 	ansible-playbook main.yml --extra-vars "username=`whoami`" -vvv -t zsh
+
+tmux:
+	ansible-playbook main.yml --extra-vars "username=`whoami`" -vvv -t tmux
