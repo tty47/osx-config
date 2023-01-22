@@ -1,7 +1,7 @@
 # Setup computer
-.PHONY: user clear all install_ansible setup setup_debug nvim zsh
+.PHONY: user clear all change_owner install_ansible setup setup_debug nvim zsh
 # --------------------------------------
-all: clear install_ansible setup_debug
+all: clear change_owner install_ansible setup_debug
 # --------------------------------------
 clear:
 	clear
@@ -23,3 +23,6 @@ zsh:
 
 tmux:
 	ansible-playbook main.yml --extra-vars "username=`whoami`" -vvv -t tmux
+
+tag: clear
+	ansible-playbook main.yml --extra-vars "username=`whoami`" -vvv -t $(TAG)
