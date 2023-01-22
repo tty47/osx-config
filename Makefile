@@ -26,4 +26,3 @@ tmux:
 
 tag: clear
 	ansible-playbook main.yml --extra-vars "username=`whoami`" -vvv -t $(TAG)
-
