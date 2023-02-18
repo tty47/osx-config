@@ -40,7 +40,7 @@ keymap('n', '<C-f>', ':NERDTreeFind<CR>')
 
 ------------------------------------------------------------------
 -- Telescope
-keymap('n', '<leader>f', ':Telescope find_files<cr>')
+keymap('n', '<leader>ff', ':Telescope find_files<cr>')
 keymap('n', '<leader>s', ':Telescope live_grep<cr>')
 
 ------------------------------------------------------------------
