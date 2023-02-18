@@ -14,6 +14,7 @@
     update_homebrew: yes
   with_items:
     - git
+    - pinentry-mac # Prompt you to enter a PIN or passphrase when required
 
 - name: "Copy Git global config to user {{ lookup('env', 'USER') }}"
   copy:
@@ -26,6 +27,21 @@
   with_items:
     - gitignore
   #ignore_errors: true # Maybe extra_alias doesn't exists
+  tags:
+    - git
+    - tunning
+    - development
+
+- name: "Copy GPG config to user {{ lookup('env', 'USER') }}"
+  copy:
+    src: ../files/git/{{ item }}
+    dest: "/Users/{{ lookup('env', 'USER') }}/.gnupg/{{ item }}"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ global.group }}"
+    mode: '0644'
+    backup: true
+  with_items:
+    - gpg-agent.conf
   tags:
     - git
     - tunning

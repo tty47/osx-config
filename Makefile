@@ -24,5 +24,8 @@ zsh:
 tmux:
 	ansible-playbook main.yml --extra-vars "username=`whoami`" -vvv -t tmux
 
+git:
+	ansible-playbook main.yml --extra-vars "username=`whoami`" -vvv -t git
+
 tag: clear
 	ansible-playbook main.yml --extra-vars "username=`whoami`" -vvv -t $(TAG)
