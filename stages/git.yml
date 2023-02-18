@@ -15,6 +15,10 @@
   with_items:
     - git
     - pinentry-mac # Prompt you to enter a PIN or passphrase when required
+  tags:
+    - git
+    - tunning
+    - development
 
 - name: "Copy Git global config to user {{ lookup('env', 'USER') }}"
   copy:
