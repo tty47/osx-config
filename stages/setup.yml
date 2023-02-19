@@ -100,10 +100,10 @@
     - "font-hack-nerd-font"
     - "keka"
 
-- name: Homebrew Upgrade cask
-  become: false
-  shell: |
-    brew upgrade --cask
+      #- name: Homebrew Upgrade cask
+      #  become: false
+      #  shell: |
+      #    brew upgrade --cask
 
 - name: Copy Script tools
   copy:
