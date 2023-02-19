@@ -91,7 +91,7 @@
     - tag-ag
     - autojump
 
-- name: Homebrew Cask Applications
+- name: homebrew cask applications
   become: false
   shell: |
     brew install --cask "{{ item }}"
@@ -99,6 +99,11 @@
     - "alacritty"
     - "font-hack-nerd-font"
     - "keka"
+
+- name: Homebrew Upgrade cask
+  become: false
+  shell: |
+    brew upgrade --cask
 
 - name: Copy Script tools
   copy:
