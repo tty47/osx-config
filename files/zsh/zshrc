@@ -310,11 +310,11 @@ done
 
 # =============================================================================
 # Source: https://github.com/aykamko/tag
-if (( $+commands[tag] )); then
-  export TAG_SEARCH_PROG=rg  # replace with rg for ripgrep
-  tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
-  alias rg=tag  # replace with rg for ripgrep
-fi
+#if (( $+commands[tag] )); then
+#  export TAG_SEARCH_PROG=rg  # replace with rg for ripgrep
+#  tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
+#  alias rg=tag  # replace with rg for ripgrep
+#fi
 
 # GPG
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
