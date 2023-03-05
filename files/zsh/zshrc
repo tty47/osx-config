@@ -185,7 +185,9 @@ alias gc="git clone"
 alias gfp="git fetch && git pull"
 alias gch='git checkout'
 alias gcd='git checkout dev && gfp'
+# linux
 #alias gurl='git config --get remote.origin.url'
+# mac
 #alias gourl='URL=`git config --get remote.origin.url` && google-chrome $URL'
 alias gourl='open $(git ls-remote --get-url)'
 alias gw="git worktree"
