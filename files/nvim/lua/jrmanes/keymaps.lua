@@ -69,8 +69,8 @@ vim.keymap.set("n", "K", ":m '<-2<CR>gv=gv")
 
 
 -- Vertical
-keymap('n', '<C-d>', '<C-d>zz')
-keymap('n', '<C-u>', '<C-u>zz')
+keymap('n', '<C-d>', '<C-d>zz') -- zz -> centers the screen
+keymap('n', '<C-u>', '<C-u>zz') -- zz -> centers the screen
 
 ------------------------------------------------------------------
 -- COC
