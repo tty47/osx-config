@@ -67,6 +67,11 @@ keymap('n', '<leader>rp', ':resize 100<cr>')
 vim.keymap.set("n", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("n", "K", ":m '<-2<CR>gv=gv")
 
+
+-- Vertical
+keymap('n', '<C-d>', '<C-d>zz')
+keymap('n', '<C-u>', '<C-u>zz')
+
 ------------------------------------------------------------------
 -- COC
 -- Commented due to plugin disabled
