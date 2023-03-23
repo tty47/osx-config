@@ -99,6 +99,7 @@
     - "alacritty"
     - "font-hack-nerd-font"
     - "keka"
+    - "warp"
 
       #- name: Homebrew Upgrade cask
       #  become: false
