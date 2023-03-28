@@ -100,6 +100,7 @@
     - "font-hack-nerd-font"
     - "keka"
     - "warp"
+    - "cron"
 
       #- name: Homebrew Upgrade cask
       #  become: false
