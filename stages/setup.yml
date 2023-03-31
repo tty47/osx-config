@@ -49,6 +49,7 @@
     - ffmpeg
     - helm
     - gh
+    - scw
     - wget
     - mage
     - go
