@@ -49,6 +49,7 @@
     - ffmpeg
     - helm
     - gh
+    - scw
     - wget
     - mage
     - go
@@ -90,6 +91,7 @@
     - rg
     - tag-ag
     - autojump
+    - argocd
 
 - name: homebrew cask applications
   become: false
@@ -99,6 +101,8 @@
     - "alacritty"
     - "font-hack-nerd-font"
     - "keka"
+    - "warp"
+    - "cron"
 
       #- name: Homebrew Upgrade cask
       #  become: false
