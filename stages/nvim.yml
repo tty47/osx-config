@@ -22,7 +22,8 @@
 - name: Install NeoVim
   shell: |
     bew unlink neovim
-    brew install --HEAD neovim
+    brew install neovim
+    #brew install --HEAD neovim
     brew reinstall neovim
   tags:
     - nvim
