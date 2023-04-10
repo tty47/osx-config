@@ -20,6 +20,7 @@ export TERM="xterm-256color"
 #ZSH_THEME="awesomepanda"
 #ZSH_THEME="obraun"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_DISABLE_COMPFIX=true
 
 ############ POWERLEVEL THEME SETTINGS ##############
 # https://deepu.tech/configure-a-beautiful-terminal-on-unix/
