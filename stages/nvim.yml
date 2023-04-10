@@ -41,6 +41,8 @@
     - lua-language-server
     - bash-language-server
     - yaml-language-server
+    - pyright
+    - python-lsp-server
 
 - name: Download Packer Installer
   shell: |

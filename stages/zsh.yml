@@ -77,6 +77,6 @@
 
 - name: Reload config
   args:
-    executable: /bin/bash
+    executable: /bin/zsh
   shell: "source /Users/{{ lookup('env', 'USER') }}/.zshrc"
   ignore_errors: true
