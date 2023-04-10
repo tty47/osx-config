@@ -92,6 +92,7 @@
     - tag-ag
     - autojump
     - argocd
+    - ngrok
 
 - name: homebrew cask applications
   become: false
