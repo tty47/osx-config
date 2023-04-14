@@ -93,6 +93,7 @@
     - autojump
     - argocd
     - ngrok
+    - grpcurl
 
 - name: homebrew cask applications
   become: false
