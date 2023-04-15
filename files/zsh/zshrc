@@ -92,7 +92,6 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
 # Add a space in the first prompt
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{#5eacd3}%}%{%b%f%k%F{#5eacd3}%}❯ %{%f%}"
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{white}%}%{%b%f%k%F{white}%}❯ %{%f%}"
-#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%B%F{black}%K{yellow}%} $user_symbol%{%b%f%k%F{yellow}%} %{%f%}"
 
 POWERLEVEL9K_NVM_BACKGROUND=none
 POWERLEVEL9K_NVM_FOREGROUND=green
@@ -100,7 +99,6 @@ POWERLEVEL9K_NODE_ICON='%fvia %F{green}⬢'
 ############ END- POWERLEVEL THEME SETTINGS ##############
 
 # =============================================================================
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -116,7 +114,6 @@ plugins=(
   autojump
   dnf
 )
-
 # =============================================================================
 source $ZSH/oh-my-zsh.sh
 
