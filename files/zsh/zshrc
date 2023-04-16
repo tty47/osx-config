@@ -320,6 +320,8 @@ alias rg=/opt/homebrew/bin/rg
 
 # GPG
 # https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+# in case of issues, try to restart it exeucting:
+# gpgconf --kill gpg-agent
 export GPG_TTY=$(tty)
 
 # Scaleway CLI autocomplete initialization.
