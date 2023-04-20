@@ -183,6 +183,7 @@ alias gc="git clone"
 alias gfp="git fetch && git pull"
 alias gch='git checkout'
 alias gcd='git checkout dev && gfp'
+alias gr='git remove -v'
 # linux
 #alias gurl='git config --get remote.origin.url'
 # mac
