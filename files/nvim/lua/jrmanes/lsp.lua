@@ -36,7 +36,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-require 'lspconfig'.sumneko_lua.setup {
+-- require 'lspconfig'.sumneko_lua.setup {
+require 'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {
       diagnostics = {
@@ -123,7 +124,8 @@ local servers = {
   'html',
   'jsonls',
   'tsserver',
-  'sumneko_lua',
+  'lua_ls',
+  -- 'sumneko_lua',
   'pyright',
   'pylsp',
   'rust_analyzer',
@@ -194,7 +196,8 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-require('lspconfig').sumneko_lua.setup {
+-- require('lspconfig').sumneko_lua.setup {
+require('lspconfig').lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
