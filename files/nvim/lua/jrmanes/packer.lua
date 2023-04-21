@@ -1,4 +1,5 @@
 vim.cmd [[packadd packer.nvim]]
+local is_bootstrap = false
 
 require('packer').startup(function(use)
   ----------------------------------------------------------------------------
@@ -183,4 +184,20 @@ require('packer').startup(function(use)
     end
   }
   ----------------------------------------------------------------------------
+  if is_bootstrap then
+    require('packer').sync()
+  end
 end)
+
+-- When we are bootstrapping a configuration, it doesn't
+-- make sense to execute the rest of the init.lua.
+--
+-- You'll need to restart nvim, and then it will work.
+if is_bootstrap then
+  print '=================================='
+  print '    Plugins are being installed'
+  print '    Wait until Packer completes,'
+  print '       then restart nvim'
+  print '=================================='
+  return
+end
