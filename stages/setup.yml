@@ -23,6 +23,7 @@
   with_items:
     - "aykamko/tag-ag"
     - "homebrew/cask-fonts" # Install FiraCodeNerdFont
+    - "hashicorp/tap"
 
 - name: Install System Applications
   become: false
@@ -47,6 +48,7 @@
     - grpc
     - protobuf
     - protoc-gen-go
+    - terraform
     - ffmpeg
     - helm
     - gh
@@ -93,7 +95,6 @@
     - tag-ag
     - autojump
     - argocd
-    - ngrok
     - grpcurl
 
 - name: homebrew cask applications
@@ -106,6 +107,7 @@
     - "keka"
     - "warp"
     - "cron"
+    - "ngrok"
 
       #- name: Homebrew Upgrade cask
       #  become: false
