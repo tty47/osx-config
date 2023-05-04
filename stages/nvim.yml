@@ -43,6 +43,7 @@
     - yaml-language-server
     - pyright
     - python-lsp-server
+    - terraform-ls
 
 - name: Download Packer Installer
   shell: |
