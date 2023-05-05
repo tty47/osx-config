@@ -20,7 +20,9 @@ export TERM="xterm-256color"
 #ZSH_THEME="awesomepanda"
 #ZSH_THEME="obraun"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_DISABLE_COMPFIX=true
+# https://stackoverflow.com/questions/55020408/zsh-compinit-insecure-directories-error-message-on-mac-after-installing-homebr
+# ZSH_DISABLE_COMPFIX=true
+# compaudit | xargs chmod g-w,o-w.
 
 ############ POWERLEVEL THEME SETTINGS ##############
 # https://deepu.tech/configure-a-beautiful-terminal-on-unix/
