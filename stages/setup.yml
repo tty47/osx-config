@@ -103,17 +103,12 @@
   shell: |
     brew install --cask "{{ item }}"
   with_items:
-    - "alacritty"
-    - "font-hack-nerd-font"
-    - "keka"
-    - "warp"
-    - "cron"
-    - "ngrok"
-
-      #- name: Homebrew Upgrade cask
-      #  become: false
-      #  shell: |
-      #    brew upgrade --cask
+    - alacritty
+    - font-hack-nerd-font
+    - keka
+    - warp
+    - cron
+    - ngrok
 
 - name: Copy Script tools
   copy:
