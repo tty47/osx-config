@@ -243,9 +243,14 @@ do
 done
 
 # Load fzf config
+#for i in fzf.zsh extra_alias extra_functions; do
+#  if [ -f ~/.$i ]; then
+#    source ~/.$i
+#  fi
+#done
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.extra_alias ] && source ~/.extra_alias
-[ -f ~/.extra_functions] && source ~/.extra_functions
+[ -f ~/.extra_functions ] && source ~/.extra_functions
 
 # =============================================================================
 # Source: https://github.com/aykamko/tag
