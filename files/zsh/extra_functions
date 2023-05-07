@@ -1,0 +1,66 @@
+# =============================================================================
+# Stops and delete first container detect
+function rmdo(){
+	IDC=$(docker ps| tail -n +2 | cut -d' ' -f1) ;d stop $IDC ; d rm $IDC 
+}
+# Setup needed files for Terraform
+function setup_tf(){
+	touch main.tf variables.tf output.tf README.md
+}
+# Get pods in nodes
+function pono(){
+	for i in $(kubectl get no --no-headers -o=custom-columns=NAME:.metadata.name); do 
+		echo -e "\e[0;37m\033[1m ---------- Node: \e[0;33m\033[1m $i  \e[0;37m\033[1m ----------\033[0m\e[0m \n"
+		kubectl describe no $i |grep Non -A 35 |grep -B 30 -m 1 "Allocated"|grep -v "Allocated"
+		echo "\n"
+	done
+}
+# Shows the allocated resources in the nodes
+function kallocated(){
+for node in $(kubectl  get no --no-headers -o=custom-columns=NAME:.metadata.name); do 
+	echo "------ NODE $node ----- \n"
+	kubectl describe no $node |grep "Allocated" -A 9
+done
+}
+# Shows the allocated resources in the nodes
+function wkallocated(){
+	while true; do 
+		for node in $(kubectl  get no --no-headers -o=custom-columns=NAME:.metadata.name); do 
+			echo "------ NODE $node ----- \n"
+			kubectl describe no $node |grep "Allocated" -A 9
+		done
+	done
+}
+# Stop and delete container
+function dsr(){
+	docker stop $1
+	docker rm $1
+}
+# Return the redis password decripted
+function dexn(){
+    for i in $(docker ps --filter "status=exited" --format '{{.Names}}'); do echo $i; done
+}
+# Filter ports from nmap scan
+function extractPorts() {
+    ports="$(cat $1 |grep -o '\d{1,5}/open'|awk '{print $1}' FS='/' |xargs |tr ' ' ',')"
+    ip_address="$(cat $1|grep -o '^Host: .* \(\)'|head -n 1|awk '{print $2}')"
+    echo -e "\n[*] Extracting information ports... \n" > extractPorts.tmp
+    echo -e "\n[*] IP Address: $ip_address" >> extractPorts.tmp
+    echo -e "\n[*] Open Ports: $ports\n" >> extractPorts.tmp
+    echo -$ports |tr -d '\n'|c
+    echo -e "[*] Ports copied to clipboard\n" >> extractPorts.tmp
+    cat extractPorts.tmp
+}
+# Show open ports
+function nmapOpenPorts(){
+    sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn $1
+}
+# gw-add-branch creates a new git worktree + branch with the same name
+function gw-add-branch(){
+    if [ -n "$1" ];then
+    	git worktree add $1 -b $1
+    else
+    	echo "Usage:\ngw-add-branch <branch-name>"
+    fi
+}
+# =============================================================================
