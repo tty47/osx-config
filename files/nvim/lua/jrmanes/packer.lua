@@ -97,10 +97,10 @@ require('packer').startup(function(use)
   -- use 'NLKNguyen/papercolor-theme' -- https://github.com/NLKNguyen/papercolor-theme
   -- use 'sainnhe/sonokai'
   -- use 'sainnhe/gruvbox-material'
-  -- use 'shaunsingh/nord.nvim'
+  use 'shaunsingh/nord.nvim'
   -- use 'cocopon/iceberg.vim'
   -- use 'jim-at-jibba/ariake-vim-colors'
-  use { "catppuccin/nvim", as = "catppuccin" } -- https://github.com/catppuccin/nvim
+  -- use { "catppuccin/nvim", as = "catppuccin" } -- https://github.com/catppuccin/nvim
   -- use 'tpope/vim-projectionist'
   -- use 'tomlion/vim-solidity'
   -- use 'folke/tokyonight.nvim' -- https://github.com/folke/tokyonight.nvim
