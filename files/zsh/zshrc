@@ -210,6 +210,7 @@ alias kgpw='kubectl get pods --all-namespaces -w'
 alias wkgno='watch kubectl get no -o wide'
 alias kpns='kubectl get pods -A --no-headers -o=custom-columns=NAME:.metadata.name,NAMESPACE:.metadata.namespace,STATUS:.status.phase'
 alias kke='kubectl kustomize --enable-helm'
+alias kdpvr='kubectl get pv -A | grep Released | cut -d' ' -f1 | xargs -I {} kubectl delete pv {}'
 
 # Docker
 alias dkall='docker rm $(docker ps -a -q); docker rmi $(docker images -a -q) --force; docker rmi $(docker image ls) && docker rm $(docker ps -a -f status=exited -q); docker system prune -a -f'
