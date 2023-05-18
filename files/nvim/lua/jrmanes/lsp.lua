@@ -134,7 +134,7 @@ local servers = {
   'terraformls',
   'tflint',
   'vuels',
-  'yamlls'
+  -- 'yamlls'
 }
 
 for _, lsp in ipairs(servers) do

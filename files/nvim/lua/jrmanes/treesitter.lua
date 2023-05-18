@@ -11,7 +11,6 @@ require'nvim-treesitter.configs'.setup {
     "typescript",
     "tsx",
     "json",
-    "yaml",
     "swift",
     "css",
     "html",
@@ -26,6 +25,7 @@ require'nvim-treesitter.configs'.setup {
     "nix",
     "markdown",
     "vim"
+    -- "yaml",
   },
 
   autotag = {
