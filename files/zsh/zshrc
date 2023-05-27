@@ -145,7 +145,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export GOVERSION=1.19.3
+export GOVERSION=1.20.4
 #export GOROOT=/usr/local/go
 #export GOPATH=~/go
 #export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
