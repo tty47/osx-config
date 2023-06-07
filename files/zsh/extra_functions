@@ -63,4 +63,8 @@ function gw-add-branch(){
     	echo "Usage:\ngw-add-branch <branch-name>"
     fi
 }
+# Delete all Released PVs
+function kdelpv(){
+	kubectl get pv|grep Released|cut -d' ' -f1|xargs -I {} kubectl delete pv {}
+}
 # =============================================================================
