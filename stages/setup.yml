@@ -97,6 +97,7 @@
     - argocd
     - grpcurl
     - kops
+    - flyctl
 
 - name: homebrew cask applications
   become: false
