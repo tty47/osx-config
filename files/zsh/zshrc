@@ -154,6 +154,7 @@ export GOVERSION=1.20.4
 # Export utils
 # The following line allows you to pull images for amd64 arch
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
+export BUILDKIT_PROGRESS=plain
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # =============================================================================
@@ -218,7 +219,6 @@ alias d="docker"
 alias dps="docker ps"
 alias wdps="watch docker ps"
 alias drm="docker stop $(docker ps -qa --no-trunc --filter "status=exited")"
-
 
 # =============================================================================
 # Paths
