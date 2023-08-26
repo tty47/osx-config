@@ -110,6 +110,7 @@
     - warp
     - cron
     - ngrok
+    - font-jetbrains-mono
 
 - name: Copy Script tools
   copy:
