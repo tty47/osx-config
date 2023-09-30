@@ -24,6 +24,7 @@
     - "aykamko/tag-ag"
     - "homebrew/cask-fonts" # Install FiraCodeNerdFont
     - "hashicorp/tap"
+    - "pulumi/tap"
 
 - name: Install System Applications
   become: false
@@ -32,6 +33,7 @@
     state: present
     update_homebrew: yes
   with_items:
+    - pulumi
     - git
     - ansible
     - neovim
