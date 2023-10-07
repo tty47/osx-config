@@ -102,6 +102,7 @@
     - kops
     - flyctl
     - go-task/tap/go-task
+    - git-lfs 
 
 - name: homebrew cask applications
   become: false
