@@ -1,13 +1,10 @@
 [user]
-    email = jose@celestia.org
-	#email = jr.mb47@gmail.com
-    username = jrmanes
-	signingkey = 589BE78046DE1BD8
+    email = <define-it>
+    username = <to-set>
+    signingkey = 589BE78046DE1BD8
+
 [safe]
 	directory = .
-	directory = /System/Volumes/Data/Volumes/Data/workspace/Celestia/celestia-node/main
-	directory = /System/Volumes/Data/Volumes/Data/workspace/Celestia
-	directory = /Volumes/Data/workspace/dev/go/github.com/jrmanes/toml2cm
 	directory = /Volumes/Data/workspace/dev/
 	directory = /Volumes/Data/workspace/DevOps
 
@@ -18,4 +15,3 @@
 
 [core]
 	excludesfile = /Users/$USER/.gitignore
-
