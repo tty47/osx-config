@@ -22,6 +22,7 @@ ZSH_THEME="robbyrussell"
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 # https://stackoverflow.com/questions/55020408/zsh-compinit-insecure-directories-error-message-on-mac-after-installing-homebr
 ZSH_DISABLE_COMPFIX=true
+export ZSH_DISABLE_COMPFIX=true
 # compaudit | xargs chmod g-w,o-w.
 
 ############ POWERLEVEL THEME SETTINGS ##############
@@ -147,14 +148,15 @@ source $ZSH/oh-my-zsh.sh
 
 export GOVERSION=1.21.1
 export GOPATH=$HOME/go
-export GOROOT="/usr/local/go/libexec"
+export GOROOT="/opt/homebrew/Cellar/go/1.21.5/libexec"
+export GOBIN=$GOPATH/bin
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # =============================================================================
 # Export utils
 # The following line allows you to pull images for amd64 arch
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
-export BUILDKIT_PROGRESS=plain
+#export DOCKER_DEFAULT_PLATFORM=linux/amd64
+#export BUILDKIT_PROGRESS=plain
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # =============================================================================
@@ -233,15 +235,15 @@ export PATH=/usr/local/bin:/Users/$USER/.local:/Users/$USER/.local/bin:/usr/loca
 export PATH=/opt/homebrew/bin:$PATH
 export PATH=:/opt/homebrew/opt/mysql-client/bin/:$PATH
 export PATH=$PATH:/usr/local/go/bin
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$PATH:/Applications/GoLand.app/Contents/MacOS"
 # =============================================================================
 PATH=/bin:/usr/bin:/usr/local/bin:${PATH}
 # =============================================================================
 
-export GOBIN=$GOPATH/bin
-export GOROOT="/usr/local/go"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
-PATH="/usr/local/bin/bash:${PATH}"
+#PATH="/usr/local/bin/bash:${PATH}"
 export PATH
 
 # Kubernetes contrib -> https://github.com/kubernetes/community/blob/master/contributors/devel/development.md
@@ -279,3 +281,5 @@ export GPG_TTY=$(tty)
 
 # Scaleway CLI autocomplete initialization.
 eval "$(scw autocomplete script shell=zsh)"
+
+export PATH=/opt/homebrew/bin:$PATH
