@@ -3,10 +3,12 @@
 function rmdo(){
 	IDC=$(docker ps| tail -n +2 | cut -d' ' -f1) ;d stop $IDC ; d rm $IDC 
 }
+
 # Setup needed files for Terraform
 function setup_tf(){
 	touch main.tf variables.tf output.tf README.md
 }
+
 # Get pods in nodes
 function pono(){
 	for i in $(kubectl get no --no-headers -o=custom-columns=NAME:.metadata.name); do 
@@ -15,6 +17,7 @@ function pono(){
 		echo "\n"
 	done
 }
+
 # Shows the allocated resources in the nodes
 function kallocated(){
 for node in $(kubectl  get no --no-headers -o=custom-columns=NAME:.metadata.name); do 
@@ -22,6 +25,7 @@ for node in $(kubectl  get no --no-headers -o=custom-columns=NAME:.metadata.name
 	kubectl describe no $node |grep "Allocated" -A 9
 done
 }
+
 # Shows the allocated resources in the nodes
 function wkallocated(){
 	while true; do 
@@ -31,15 +35,18 @@ function wkallocated(){
 		done
 	done
 }
+
 # Stop and delete container
 function dsr(){
 	docker stop $1
 	docker rm $1
 }
+
 # Return the redis password decripted
 function dexn(){
     for i in $(docker ps --filter "status=exited" --format '{{.Names}}'); do echo $i; done
 }
+
 # Filter ports from nmap scan
 function extractPorts() {
     ports="$(cat $1 |grep -o '\d{1,5}/open'|awk '{print $1}' FS='/' |xargs |tr ' ' ',')"
@@ -51,10 +58,12 @@ function extractPorts() {
     echo -e "[*] Ports copied to clipboard\n" >> extractPorts.tmp
     cat extractPorts.tmp
 }
+
 # Show open ports
 function nmapOpenPorts(){
     sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn $1
 }
+
 # gw-add-branch creates a new git worktree + branch with the same name
 function gw-add-branch(){
     if [ -n "$1" ];then
@@ -63,6 +72,7 @@ function gw-add-branch(){
     	echo "Usage:\ngw-add-branch <branch-name>"
     fi
 }
+
 # Delete all Released PVs
 function kdelpv(){
 	kubectl get pv|grep Released|cut -d' ' -f1|xargs -I {} kubectl delete pv {}
