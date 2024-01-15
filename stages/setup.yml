@@ -100,9 +100,13 @@
     - argocd
     - grpcurl
     - kops
-    - flyctl
     - go-task/tap/go-task
-    - git-lfs 
+    - git-lfs
+    - keepassxc
+    - flycut
+    - scroll-reverser
+    - postman
+    - dbeaver-community
 
 - name: homebrew cask applications
   become: false
