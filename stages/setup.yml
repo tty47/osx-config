@@ -107,6 +107,7 @@
     - scroll-reverser
     - postman
     - dbeaver-community
+    - kubeconform
 
 - name: homebrew cask applications
   become: false
