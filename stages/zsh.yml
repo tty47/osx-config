@@ -81,3 +81,7 @@
     executable: /bin/zsh
   shell: "source /Users/{{ lookup('env', 'USER') }}/.zshrc"
   ignore_errors: true
+  tags:
+    - zsh
+    - tunning
+    - development
