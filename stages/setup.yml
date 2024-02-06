@@ -111,8 +111,7 @@
 
 - name: homebrew cask applications
   become: false
-  shell: |
-    brew install --cask "{{ item }}"
+  shell: brew install --cask "{{ item }}"
   with_items:
     - alacritty
     - font-hack-nerd-font
