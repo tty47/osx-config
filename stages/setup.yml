@@ -82,6 +82,7 @@
     - gawk
     - gnu-sed
     - gnu-tar
+    - gnupg
     - grep
     - make
     - jq
